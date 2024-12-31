@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Amazing Personal Website</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #444;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 50px;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
+        }
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #555;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .gallery img {
+            width: 150px;
+            height: 100px;
+            margin: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+        /* Modal Styling */
+        #modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+        #modal img {
+            margin-top: 10%;
+            max-width: 90%;
+            max-height: 80%;
+        }
+        #modal span {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Amazing Website</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#biodata" class="nav-link">Biodata</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        </ul>
+    </nav>
+    <section id="home">
+        <h2>Home</h2>
+        <p>Welcome to my personal website! Scroll to explore.</p>
+    </section>
+    <section id="biodata">
+        <h2>Biodata</h2>
+        <p><strong>Name:</strong> Nur Fatin Audryna</p>
+        <p><strong>Hobbies:</strong> Volunteering, Reading, Traveling, Coding</p>
+    </section>
+    <section id="experience">
+        <h2>Experience</h2>
+        <ul>
+            <li>Explore more about my life</li>
+            <li>Volunteer at ABC Org.</li>
+        </ul>
+    </section>
+    <section id="education">
+        <h2>Education</h2>
+        <p>Diploma in Information Management</p>
+    </section>
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="image1.jpg" alt="Image 1" onclick="openModal(this.src)">
+            <img src="image2.jpg" alt="Image 2" onclick="openModal(this.src)">
+            <img src="image3.jpg" alt="Image 3" onclick="openModal(this.src)">
+        </div>
+    </section>
+    <div id="modal">
+        <span onclick="closeModal()">&times;</span>
+        <img id="modal-img" src="">
+    </div>
+    <footer>
+        <p>&copy; 2024 Fatin Audryna</p>
+        <p id="clock"></p>
+    </footer>
+    <script>
+        // Sticky Navigation Highlight
+        const navLinks = document.querySelectorAll('.nav-link');
+        window.addEventListener('scroll', () => {
+            let currentSection = '';
+            navLinks.forEach(link => {
+                const section = document.querySelector(link.getAttribute('href'));
+                const sectionTop = section.offsetTop - 60;
+                if (scrollY >= sectionTop) currentSection = link.getAttribute('href');
+            });
+            navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentSection));
+        });
+
+        // Gallery Modal
+        function openModal(src) {
+            document.getElementById('modal-img').src = src;
+            document.getElementById('modal').style.display = 'block';
+        }
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Dynamic Clock
+        const clock = document.getElementById('clock');
+        setInterval(() => {
+            const now = new Date();
+            clock.textContent = now.toLocaleString();
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change HTML Content</title>
+
+    <h1>QUICK EXERCISE – Javascripts</h1>
+    <script>
+        function changeContent() {
+            document.getElementById("myParagraph").innerHTML = "I love to learn web design";
+        }
+    </script>
+</head>
+<body>
+    <p id="myParagraph">Welcome to my page</p>
+    <button onclick="changeContent()">Change Text</button>
+
+<h2>Change Text Style</h2>
+    <script>
+        function styleText() {
+            const element = document.getElementById("styledParagraph");
+            element.style.fontSize = "25px";
+            element.style.fontFamily = "Courier New";
+            element.style.color = "blue";
+            element.style.backgroundColor = "yellow";
+        }
+    </script>
+</head>
+<body>
+    <p id="styledParagraph">Hello! Welcome to Faculty of Information Management</p>
+    <button onclick="styleText()">Change Style</button>
+
+<h2>Change Image Attribute</h2>
+    <script>
+        function changeImage() {
+            document.getElementById("myImage").src = "image/gambar1.png"; 
+        }
+    </script>
+</head>
+<body>
+    <img id="myImage" src="image/gambar2.png" alt="Image" width="300">
+    <button onclick="changeImage()">Change Image</button>
+
+<h2>Alert Box</h2>
+    <script>
+        function showAlert() {
+            alert("Assalamualaikum.\nSelamat datang ke kelas IMS456 \nSemoga kita beroleh ilmu bermanfaat");
+        }
+    </script>
+</head>
+<body>
+    <button onclick="showAlert()">Show Alert</button>
+
+<h2>Map to KLCC</h2>
+    <title>Map to KLCC</title>
+</head>
+<body>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.825207321574!2d101.71154437769942!3d3.1578412384557767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d5b4e73251%3A0x9b7ebadf9b026799!2sPetronas%20Twin%20Towers!5e0!3m2!1sen!2smy!4v1699724471736!5m2!1sen!2smy"
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</body>
+</html>
+
+
